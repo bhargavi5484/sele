@@ -1,0 +1,56 @@
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "jenkins.diagnostics.ControllerExecutorsAgents"
+  labelAtoms:
+  - name: "agent"
+  - name: "agent1"
+  - name: "built-in"
+  - name: "dev"
+  - name: "devops"
+  - name: "prac"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodes:
+  - permanent:
+      labelString: "agent devops"
+      launcher:
+        ssh:
+          credentialsId: "BUILD-AGENT-CREDENTIALS"
+          host: "agent"
+          port: 22
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "agent"
+      remoteFS: "/home/jenkins/agent"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "agent17 devops"
+      launcher:
+        ssh:
+          credentialsId: "BUILD-AGENT-CREDENTIALS"
+          host: "agent17"
+          port: 22
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "agent17"
+      remoteFS: "/home/jenkins/agent"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "prac dev"
+      launcher:
+        ssh:
+          credentialsId: "practice-id"
+          host: "agent1"
+          port: 22
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "agent1"
+      remoteFS: "/home/jenkins/agent"
+      retentionStrategy: "always"
+      
+     
